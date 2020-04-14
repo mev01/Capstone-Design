@@ -1,1 +1,4 @@
-# Capstone-Design
+# 캡스톤 디자인
+## VR
+  Unity 버전: 2019.3.9f1
+## 감정분석
