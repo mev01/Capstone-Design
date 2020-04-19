@@ -28,6 +28,11 @@ Capstone-Design/[Bb]uilds/
 Capstone-Design/[Ll]ogs/
 Capstone-Design/[Mm]emoryCaptures/
 
+# Unity generated #
+Capstone-Design/Library/
+Capstone-Design/Temp/
+Capstone-Design/obj/
+
 # Never ignore Asset meta data
 !Capstone-Design/[Aa]ssets/**/*.meta
 
