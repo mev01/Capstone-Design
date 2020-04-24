@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using IronPython.Hosting;
 
 public class LookItem : MonoBehaviour
 {
@@ -15,7 +16,15 @@ public class LookItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var engine = Python.CreateEngine();
+        var scope = engine.CreateScope();
+
+        string code = "a=1+2";
+
+        var source = engine.CreateScriptSourceFromString(code);
+        source.Execute(scope);
+
+        Debug.Log(scope.GetVariable<int>("a"));
     }
 
     // Update is called once per frame
