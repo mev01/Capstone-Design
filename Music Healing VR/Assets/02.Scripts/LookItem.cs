@@ -23,11 +23,11 @@ public class LookItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string url = Application.dataPath + "/hello2/hello.py"; //경로 불러오기
+        string url = Application.dataPath + "/sentiment-analysis/StreamingEmulate.py"; //경로 불러오기
         _code = File.ReadAllText(url); //코드 불러오기
         Libs = new List<string> //라이브러리 경로 지정
         {
-            Application.dataPath + "/hello2/venv/Lib",
+            Application.dataPath + "/sentiment-analysis/venv/Lib",
         };
         //주의! 반드시 스레드로 할 것을 추천한다. 단일스레드 유니티 특성상 실행동안 굳는데, 시간이 길어지면 오류로 인식하고 종료된다.
         new Thread(new ThreadStart(Run)).Start();
@@ -89,17 +89,33 @@ public class LookItem : MonoBehaviour
         engine.Runtime.GetSysModule().SetVariable("argv", argv); //sys.argv 입력
 
         var paths = engine.GetSearchPaths(); //라이브러리들의 위치를 입력해줘야한다.
-        foreach (string s in Libs)
-            paths.Add(s);
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/unity-python-master/Lib");
+        //paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/google/cloud");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/google/cloud/speech_v1/gapic");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_internal/utils");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip-20.1-py3.6.egg/pip/_internal/utils");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_internal/utils/__pycache__");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_vendor");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_vendor/pkg_resources");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_vendor/pkg_resources/__pycache__");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/google/oauth2");
+        paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_vendor/pkg_resources/__pycache__");
+        //paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packages/pip/_vendor/pkg_resources");
+        //paths.Add("C:/Users/YOU-DB/Code/git/Capstone-Design/Music Healing VR/Assets/sentiment-analysis/venv/Lib/site-packagespip_internal/utils");
+        //foreach (string s in Libs)
+        //paths.Add(s);
 
         engine.SetSearchPaths(paths); //라이브러리 등록
 
         StringBuilder code = new StringBuilder(); //문자열 처리할 것이 많으면 StringBuilder가 좋다.
+        //code.Append("from __future__ import division\n");
         code.Append("import UnityEngine\n"); //이렇게 하면 유니티의 메소드를 Python에서 구동할 수 있다.
         code.Append(_code); //코드 추가
-        code = code.Replace("print", "UnityEngine.Debug.Log"); //이렇게 하면 결과를 출력받을 수 있다. cmd에서는 print로 되니 문제도 발생안하고 좋다.
+        //code = code.Replace("print", "UnityEngine.Debug.Log"); //이렇게 하면 결과를 출력받을 수 있다. cmd에서는 print로 되니 문제도 발생안하고 좋다.
 
         var script = engine.CreateScriptSourceFromString(code.ToString()); // 코드 등록
+        Debug.Log(code);
         script.Execute(); //실행
     }
 }

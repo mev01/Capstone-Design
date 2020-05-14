@@ -1,23 +1,23 @@
-from __future__ import division
+#from __future__ import division
 # __future__ 모듈은 파이썬 2버전과 3버전을 동시에 동작하도록 함. division은 python 3 스타일의 나누기 지원.
-
-import os
-    # 환경변수 설정
-#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/hyunwoo/Desktop/speech-to-text-273518-4131322696e3.json"
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/YOU-DB/Code/git/Capstone-Design/sentiment-analysis/capstone-275211-e60e60421509.json"
-
 
 import re
 # 정규 표현식을 지원하기 위한 re(regular expression)모듈
 import sys
+
 # 파이썬 인터프리터 제어
 import time
 
+import os
+    # 환경변수 설정
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/hyunwoo/Desktop/speech-to-text-273518-4131322696e3.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/YOU-DB/Desktop/lithe-optics-277207-343e19ec1c27.json"
+
 # [IMPORTS the Google Cloud clinet library, 밑 세줄]
-from google.cloud import speech
-from google.cloud.speech import enums
+import speech
+import enums
 # enmus는 오디오 인코딩 타입 목록(enumerations)들이 포함되어있는 모듈
-from google.cloud.speech import types
+import types
 # types는 요청에 필요한 클래스(Ex. types.RecognitionAudio)들 포함
 
 import pyaudio
@@ -150,11 +150,11 @@ def listen_print_loop(responses):
     """
     num_chars_printed = 0
     for response in responses:
-        if response.speech_event_type:
-            time.sleep(2)
-            text = transcript + overwrite_chars
-            print('here is final text: {}'.format(text))
-            return text
+        #if response.speech_event_type:
+            #time.sleep(2)
+            #text = transcript + overwrite_chars
+            #print('here is final text: {}'.format(text))
+            #return text
         if not response.results:
             continue
 
@@ -182,7 +182,8 @@ def listen_print_loop(responses):
             num_chars_printed = len(transcript)
 
         else:
-            print(transcript + overwrite_chars)
+            #print(transcript + overwrite_chars)
+            UnityEngine.Debug.Log(transcript + overwrite_chars)
 
             # Exit recognition if any of the transcribed phrases could be
             # one of our keywords.
