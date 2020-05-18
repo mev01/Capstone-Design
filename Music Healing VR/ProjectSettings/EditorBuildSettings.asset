@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01.Scenes/Demo Night.unity
+    path: Assets/01.Scenes/Lobby.unity
     guid: a5df9867bdacd604dbe1d73079151448
+  - enabled: 1
+    path: Assets/01.Scenes/Peaceful, Calm.unity
+    guid: 2b02c29601fc84e49a18fde7fed33f95
   m_configObjects: {}
