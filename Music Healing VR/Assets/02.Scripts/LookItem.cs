@@ -31,7 +31,7 @@ public class LookItem : MonoBehaviour
             Application.dataPath + "/sentiment-analysis/venv/Lib",
         };
         //주의! 반드시 스레드로 할 것을 추천한다. 단일스레드 유니티 특성상 실행동안 굳는데, 시간이 길어지면 오류로 인식하고 종료된다.
-        new Thread(new ThreadStart(Run)).Start();
+        //new Thread(new ThreadStart(Run)).Start();
 
         /*var engine = Python.CreateEngine();
         var scope = engine.CreateScope();
