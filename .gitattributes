@@ -4,3 +4,5 @@ Music[[:space:]]Healing[[:space:]]VR/Assets/HorrorEnvironment_AbandonedManor/Tex
 Music[[:space:]]Healing[[:space:]]VR/Assets/HorrorEnvironment_GhostTown/Textures/Grounds/ground_concrete_A_MR.psd filter=lfs diff=lfs merge=lfs -text
 Music[[:space:]]Healing[[:space:]]VR/Assets/HorrorEnvironment_GhostTown/Textures/Grounds/stoneWall_MR.psd filter=lfs diff=lfs merge=lfs -text
 Music[[:space:]]Healing[[:space:]]VR/Assets/HorrorEnvironment_GhostTown/Textures/Roofs/roof_B_N.psd filter=lfs diff=lfs merge=lfs -text
+Music[[:space:]]Healing[[:space:]]VR/Assets/Window_Rain/Textures/Rain_Dripping_TextureSheet.tif filter=lfs diff=lfs merge=lfs -text
+Music[[:space:]]Healing[[:space:]]VR/Assets/Window_Rain/Textures/Window_Rain_TextureSheet.tif filter=lfs diff=lfs merge=lfs -text
