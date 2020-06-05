@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
     public GameObject MenuPanel;
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
         {
             MenuPop();
         }
@@ -21,10 +21,10 @@ public class Menu : MonoBehaviour
 
             GameObject.Find("Canvas").transform.Find("ExitMenuPanel").gameObject.SetActive(false); //나가기메뉴 비활성화
 
-            Camera.main.transform.position += new Vector3(0f, 3f, 0f); //땅 안보이게 카메라 위로 올리기
+            Camera.main.transform.position += new Vector3(0f, 1f, 0f); //땅 안보이게 카메라 위로 올리기
             this.transform.position = //카메라 앞에 panel 위치시키기
                 Camera.main.transform.position 
-                + Camera.main.transform.forward * 5.5f
+                + Camera.main.transform.forward * 3.0f
                 + new Vector3(0, 0, 2); 
             this.transform.rotation = new Quaternion(
                 Camera.main.transform.rotation.x, 
@@ -49,7 +49,7 @@ public class Menu : MonoBehaviour
     {
         //Time.timeScale = 1f; // 시간을 다시 흘러가게 한다. 
 
-        Camera.main.transform.position -= new Vector3(0f, 3f, 0f); //카메라 내리기
+        Camera.main.transform.position -= new Vector3(0f, 1f, 0f); //카메라 내리기
         MenuPanel.SetActive(false);
         GameObject.Find("Canvas").transform.Find("ExitMenuPanel").gameObject.SetActive(false);
     }

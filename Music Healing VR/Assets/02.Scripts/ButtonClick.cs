@@ -20,7 +20,7 @@ public class ButtonClick : MonoBehaviour
             stopTime = currentTime;
             check = true;
         }
-        if (currentTime - stopTime >= 1.5f && check) //응시 1.5초 지나면 버튼 클릭
+        if (currentTime - stopTime >= 1.0f && check) //응시 1초 지나면 버튼 클릭
         {
             BtClick();
             check = false;
@@ -43,7 +43,7 @@ public class ButtonClick : MonoBehaviour
         }
         else if (this.gameObject.name == "Lobby botton")
         {
-            SceneManager.LoadScene("Lobby");
+            SceneManager.LoadScene("0.Lobby");
         }
         else if (this.gameObject.name == "My Music botton")
         {

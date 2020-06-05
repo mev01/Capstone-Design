@@ -77,7 +77,7 @@ public class LookItem : MonoBehaviour
     public void Text2()
     {
         //chText.GetComponent<Text>().text = "오늘 기분이 어떠신가요??";
-        SceneManager.LoadScene("Peaceful, Calm");
+        SceneManager.LoadScene(1);
     }
 
     private void Run()
