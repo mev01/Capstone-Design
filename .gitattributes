@@ -8,3 +8,5 @@ Music[[:space:]]Healing[[:space:]]VR/Assets/Window_Rain/Textures/Rain_Dripping_T
 Music[[:space:]]Healing[[:space:]]VR/Assets/Window_Rain/Textures/Window_Rain_TextureSheet.tif filter=lfs diff=lfs merge=lfs -text
 Music[[:space:]]Healing[[:space:]]VR/Library/Artifacts/2d/2d92e4e9d4a9e161724b8c38d09323b7 filter=lfs diff=lfs merge=lfs -text
 Music[[:space:]]Healing[[:space:]]VR/Library/Artifacts/7f/7f0fdd588ec589444c73728378919430 filter=lfs diff=lfs merge=lfs -text
+Music[[:space:]]Healing[[:space:]]VR/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-6_15_0.so filter=lfs diff=lfs merge=lfs -text
+http://www.devkorea.co.kr/bbs/board.php?bo_table=m03_qna&wr_id=79671 filter=lfs diff=lfs merge=lfs -text

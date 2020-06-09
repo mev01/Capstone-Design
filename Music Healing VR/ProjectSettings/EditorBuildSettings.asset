@@ -22,10 +22,10 @@ EditorBuildSettings:
     guid: b316b9af625a68145865d616b0c77d36
   - enabled: 1
     path: Assets/01.Scenes/5.Depressed.unity
-    guid: 7a6fbdd7822da8a43846c9e43a3bbab2
+    guid: 4a4333c471426ed47bb738db0ad654b0
   - enabled: 1
     path: Assets/01.Scenes/6.WantsToCry.unity
-    guid: 4a4333c471426ed47bb738db0ad654b0
+    guid: 7a6fbdd7822da8a43846c9e43a3bbab2
   - enabled: 1
     path: Assets/01.Scenes/7.Scary.unity
     guid: adcbf9307c69583459993dbcb95f8f2d

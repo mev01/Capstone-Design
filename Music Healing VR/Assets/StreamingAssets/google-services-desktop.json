@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "947792429100",
+    "firebase_url": "https://music-healing-vr.firebaseio.com",
+    "project_id": "music-healing-vr",
+    "storage_bucket": "music-healing-vr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947792429100:android:94c98329c7c6c2d7c05189",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.MusicHealingVR"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947792429100-vo1v5b0qdqcpt5ntsu423v915u8sc2uc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0opVKxcu1qs2r9S3GaVb0Uo-WGdAerLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947792429100-vo1v5b0qdqcpt5ntsu423v915u8sc2uc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
