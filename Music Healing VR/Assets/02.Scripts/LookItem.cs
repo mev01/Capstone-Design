@@ -8,6 +8,7 @@ using System.IO;
 using IronPython.Runtime;
 using System.Text;
 using UnityEngine.SceneManagement;
+using FrostweepGames.Plugins.GoogleCloud.SpeechRecognition;
 
 public class LookItem : MonoBehaviour
 {
@@ -16,12 +17,12 @@ public class LookItem : MonoBehaviour
     bool isLookAt=false;
     bool check = true;
 
-    public Text chText;
-    private int pg = 1;
-    private List<string> Libs; //라이브러리의 경로
-    private string _code; //실행할 파이썬의 코드
+    //public Text chText;
+    private int pg;
+    //private List<string> Libs; //라이브러리의 경로
+    //private string _code; //실행할 파이썬의 코드
 
-    // Start is called before the first frame update
+    /*
     void Start()
     {
         string url = Application.dataPath + "/sentiment-analysis/StreamingEmulate.py"; //경로 불러오기
@@ -33,7 +34,7 @@ public class LookItem : MonoBehaviour
         //주의! 반드시 스레드로 할 것을 추천한다. 단일스레드 유니티 특성상 실행동안 굳는데, 시간이 길어지면 오류로 인식하고 종료된다.
         //new Thread(new ThreadStart(Run)).Start();
 
-        /*var engine = Python.CreateEngine();
+        var engine = Python.CreateEngine();
         var scope = engine.CreateScope();
 
         string code = "a=1+2";
@@ -41,8 +42,9 @@ public class LookItem : MonoBehaviour
         var source = engine.CreateScriptSourceFromString(code);
         source.Execute(scope);
 
-        Debug.Log(scope.GetVariable<int>("a"));*/
-    }
+        Debug.Log(scope.GetVariable<int>("a"));
+    } */
+
 
     // Update is called once per frame
     void Update()
@@ -55,31 +57,37 @@ public class LookItem : MonoBehaviour
         }
         if (currentTime - stopTime >= 1 && check)
         {
-            if (pg++ == 1)
-                Text1();
-            else 
-                Text2();
+            SceneManager.LoadScene(pg);
             check = false;
         }
     }
 
-    public void onLookItemBox(bool look)
+    public void onLookItemBox1(bool look)
     {
         isLookAt = look;
+        pg = 2;
         Debug.Log(isLookAt);
     }
 
-    public void Text1()
+    public void onLookItemBox2(bool look)
     {
-        chText.GetComponent<Text>().text = "이제부터 제가 하는 질문에 답변해주세요. 준비가 되면 next버튼을 봐주세요";
+        isLookAt = look;
+        pg = 3;
+        Debug.Log(isLookAt);
     }
-
-    public void Text2()
+    public void onLookItemBox3(bool look)
     {
-        //chText.GetComponent<Text>().text = "오늘 기분이 어떠신가요??";
-        SceneManager.LoadScene(3);
+        isLookAt = look;
+        pg = 6;
+        Debug.Log(isLookAt);
     }
-
+    public void onLookItemBox4(bool look)
+    {
+        isLookAt = look;
+        pg = 8;
+        Debug.Log(isLookAt);
+    }
+    /*
     private void Run()
     {
         //Python에서 sys.argv로 실행인자를 받도록 하는 것을 알것이다. 그것을 .Net에서 입력해주는 것이다.
@@ -120,4 +128,5 @@ public class LookItem : MonoBehaviour
         Debug.Log(code);
         script.Execute(); //실행
     }
+    */
 }
