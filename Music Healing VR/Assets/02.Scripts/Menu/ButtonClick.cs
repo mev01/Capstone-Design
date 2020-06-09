@@ -43,15 +43,7 @@ public class ButtonClick : MonoBehaviour
         }
         else if (this.gameObject.name == "Lobby botton")
         {
-            SceneManager.LoadScene("0.Lobby");
-        }
-        else if (this.gameObject.name == "My Music botton")
-        {
-
-        }
-        else if (this.gameObject.name == "Volume button")
-        {
-
+            SceneManager.LoadScene(0);
         }
         else if (this.gameObject.name == "Exit button")
         {

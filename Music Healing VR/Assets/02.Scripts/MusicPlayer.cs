@@ -3,56 +3,87 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public AudioClip[] ad = new AudioClip[5];
-
     AudioSource audio;
-    byte[] arrByte;
+    int[] idxArr;
     int i;
 
     void Start()
     {
         i = 0;
-        arrByte = new byte[5];
+        idxArr = new int[10];
         audio = GetComponent<AudioSource>();
 
-        indexSuffle(arrByte);
-        audio.clip = ad[arrByte[i++]];
+        indexSuffle(idxArr);
+
+        audio.clip = MusicDownload.ad[idxArr[i]];
         audio.Play();
+    }
+
+    void Update()
+    {
         StartCoroutine(PlayOne());
     }
 
     IEnumerator PlayOne()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2)){ //다음 곡으로 넘어가기
-            audio.clip = ad[arrByte[i++]];
+        if (Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick1Button2)){ //다음 곡으로 넘어가기
+            audio.clip = MusicDownload.ad[idxArr[++i]];
             audio.Play();
             if(i == 4)
             {
-                indexSuffle(arrByte);
-                i = 0;
+                i = -1;
             }
             yield return new WaitForSeconds(audio.clip.length);   
         }
-        else if (Input.GetKeyDown(KeyCode.Joystick1Button1)) //이전 곡으로 가기
+
+        if (!audio.isPlaying)
         {
-            audio.clip = ad[arrByte[--i]];
-            if (i == -1)
-            {
-                i = 4;
-            }
+            audio.clip = MusicDownload.ad[idxArr[++i]];
             audio.Play();
+            if (i == 4)
+            {
+                i = -1;
+            }
             yield return new WaitForSeconds(audio.clip.length);
         }
+
     }
 
-    //arrByte에 랜덤 인덱스값 넣기
-    private void indexSuffle(byte[] arrByte)
+    //idxArr에 랜덤 인덱스값 넣기
+    private void indexSuffle(int[] idxArr)
     {
-        System.Random rand = new System.Random();
-        rand.NextBytes(arrByte);
+
+        for (int i = 0; i < 10; i++)
+        {
+            idxArr[i] = i;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                idxArr[i] = 10+i;
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                idxArr[i] = 20 + i;
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 7 || SceneManager.GetActiveScene().buildIndex == 8)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                idxArr[i] = 30 + i;
+            }
+        }
+
     }
 
 }

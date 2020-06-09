@@ -30,60 +30,72 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.W))
+        {
+            Debug.Log("move forward");
+
+            //메인카메라가 바라보는 방향
+            Vector3 dir = camTr.TransformDirection(Vector3.forward);
+            cc.Move(dir * Time.deltaTime * speed);
+        }
+    }
+
+    void JoistickMove()
+    {
         if (key == 0)
         {
             if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.W))
             {
-                Debug.Log(1);
+                Debug.Log("move forward");
                 key = 1;
                 //메인카메라가 바라보는 방향
                 Vector3 dir = camTr.TransformDirection(Vector3.forward);
                 cc.Move(dir * Time.deltaTime * speed);
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.A))
-            {
-                key = 2;
-                Vector3 dir = camTr.TransformDirection(Vector3.left);
-                cc.Move(dir * Time.deltaTime * speed);
-            }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKey(KeyCode.D))
-            {
-                key = 3;
-                Vector3 dir = camTr.TransformDirection(Vector3.right);
-                cc.Move(dir * Time.deltaTime * speed);
-            }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.S))
-            {
-                key = 4;
-                Vector3 dir = camTr.TransformDirection(Vector3.back);
-                cc.Move(dir * Time.deltaTime * speed);
-            }
+            /* else if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.A))
+             {
+                 key = 2;
+                 Vector3 dir = camTr.TransformDirection(Vector3.left);
+                 cc.Move(dir * Time.deltaTime * speed);
+             }
+             else if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKey(KeyCode.D))
+             {
+                 key = 3;
+                 Vector3 dir = camTr.TransformDirection(Vector3.right);
+                 cc.Move(dir * Time.deltaTime * speed);
+             }
+             else if (Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.S))
+             {
+                 key = 4;
+                 Vector3 dir = camTr.TransformDirection(Vector3.back);
+                 cc.Move(dir * Time.deltaTime * speed);
+             } */
         }
 
         else if (key != 0 && Input.anyKeyDown)
         {
             key = 0;
         }
-        else if(key == 1)
+        else if (key == 1)
         {
             Vector3 dir = camTr.TransformDirection(Vector3.forward);
             cc.Move(dir * Time.deltaTime * speed);
         }
-        else if (key == 2)
-        {
-            Vector3 dir = camTr.TransformDirection(Vector3.left);
-            cc.Move(dir * Time.deltaTime * speed);
-        }
-        else if (key == 3)
-        {
-            Vector3 dir = camTr.TransformDirection(Vector3.right);
-            cc.Move(dir * Time.deltaTime * speed);
-        }
-        else if (key == 4)
-        {
-            Vector3 dir = camTr.TransformDirection(Vector3.back);
-            cc.Move(dir * Time.deltaTime * speed);
-        }
+        /* else if (key == 2)
+         {
+             Vector3 dir = camTr.TransformDirection(Vector3.left);
+             cc.Move(dir * Time.deltaTime * speed);
+         }
+         else if (key == 3)
+         {
+             Vector3 dir = camTr.TransformDirection(Vector3.right);
+             cc.Move(dir * Time.deltaTime * speed);
+         }
+         else if (key == 4)
+         {
+             Vector3 dir = camTr.TransformDirection(Vector3.back);
+             cc.Move(dir * Time.deltaTime * speed);
+         } */
     }
 
 }

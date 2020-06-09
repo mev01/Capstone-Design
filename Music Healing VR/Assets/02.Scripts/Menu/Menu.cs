@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
     public GameObject MenuPanel;
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
+        if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button9))
         {
             MenuPop();
         }
@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
             Camera.main.transform.position += new Vector3(0f, 1f, 0f); //땅 안보이게 카메라 위로 올리기
             this.transform.position = //카메라 앞에 panel 위치시키기
                 Camera.main.transform.position 
-                + Camera.main.transform.forward * 3.0f
+                + Camera.main.transform.forward * 5.0f
                 + new Vector3(0, 0, 2); 
             this.transform.rotation = new Quaternion(
                 Camera.main.transform.rotation.x, 
