@@ -32,8 +32,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Debug.Log("move forward");
-
             //메인카메라가 바라보는 방향
             Vector3 dir = camTr.TransformDirection(Vector3.forward);
             cc.Move(dir * Time.deltaTime * speed);
