@@ -36,8 +36,14 @@ public class ButtonClick : MonoBehaviour
     {
         if (this.gameObject.name == "Transition button")
         {
-            if (SceneManager.GetActiveScene().buildIndex != 8)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //if (SceneManager.GetActiveScene().buildIndex != 8)
+            //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+                SceneManager.LoadScene(3);
+            else if (SceneManager.GetActiveScene().buildIndex == 3)
+                SceneManager.LoadScene(8);
+            else if (SceneManager.GetActiveScene().buildIndex == 8)
+                SceneManager.LoadScene(6);
             else
                 SceneManager.LoadScene(1);
         }
